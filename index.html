@@ -168,10 +168,13 @@ overflow:auto;
 
 <body>
 
-<audio controls>
+<audio id="musik" loop>
   <source src="hari ini.mp3" type="audio/mpeg">
-  Browser kamu tidak mendukung audio.
 </audio>
+
+<button onclick="document.getElementById('musik').play()">
+  ▶ Putar Musik
+</button>
 
 <section id="sec1" class="active">
 <div class="big17">17</div>
