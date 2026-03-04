@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+--pink:#ffc0cb;
+--pink-dark:#ffb6c1;
+--white:#ffffff;
+--cream:#fdf6e3;
+--text:#555;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fff0f5 0%,#ffe4e1 50%,#fffdd0 100%);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+color:var(--text);
+}
+
+.hidden{display:none!important;}
+.active{display:flex!important;animation:fadeIn 1s forwards;}
+
+.big17{
+position:absolute;
+font-size:200px;
+font-weight:900;
+opacity:0.05;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+pointer-events:none;
+}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes confettiFall{0%{transform:translateY(-10vh) rotate(0)}100%{transform:translateY(110vh) rotate(360deg)}}
+
+section{
+position:absolute;
+width:100%;
+height:100%;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+h1{
+font-family:'Pacifico',cursive;
+color:var(--pink-dark);
+text-shadow:2px 2px 6px rgba(255,192,203,.4);
+}
+
+.title-besar{
+font-size:48px;
+}
+
+.btn{
+background:var(--pink);
+color:white;
+border:none;
+padding:15px 40px;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(255,192,203,.6);
+transition:.3s;
+margin-top:20px;
+}
+.btn:hover{transform:scale(1.05);background:var(--pink-dark);}
+
+.photo-main{
+max-width:320px;
+width:90%;
+border-radius:20px;
+margin:20px 0;
+box-shadow:0 10px 25px rgba(255,182,193,.6);
+}
+
+.photo-card{
+max-width:260px;
+width:90%;
+border-radius:20px;
+margin-bottom:15px;
+box-shadow:0 10px 25px rgba(255,182,193,.6);
+}
+
+.balloon{
+position:absolute;
+font-size:3rem;
+animation:floating 3s infinite ease-in-out;
+}
+.balloon.left{left:10%;top:25%;}
+.balloon.right{right:5%;top:17%;animation-duration:4s;}
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+top:-10px;
+animation:confettiFall 3s linear forwards;
+}
+
+.card-container{
+perspective:1000px;
+width:300px;
+height:420px;
+}
+
+.card-inner{
+position:relative;
+width:100%;
+height:100%;
+transform-style:preserve-3d;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(255,192,203,.4);
+transition:transform 1s ease;
+}
+
+.card-container.open .card-inner{
+transform:rotateY(180deg);
+transition-delay:1s;
+}
+
+.card-front,.card-back{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:25px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+backface-visibility:hidden;
+}
+
+.card-front{
+background:linear-gradient(135deg,var(--pink),var(--white));
+}
+
+.card-back{
+background:var(--cream);
+transform:rotateY(180deg);
+text-align:center;
+overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" preload="auto" loop>
+<source src="hari ini.mp3" type="<audi></audi>o/mpeg">
+</audio>
+
+<section id="sec1" class="active">
+<div class="big17">17</div>
+<h1 style="animation:slideUp 1s,bounce 2s infinite;">Halo  👋💖</h1>
+<div style="font-size:4rem;margin:20px 0;">🎁✨</div>
+<button class="btn" onclick="goToSection(2)">Lanjut 💌</button>
+</section>
+
+<section id="sec2" class="hidden">
+<div class="big17">17</div>
+<div class="balloon left">🎈</div>
+<div class="balloon right">🎈</div>
+<h1 class="title-besar">Selamat Ulang Tahun ke 17 🎂✨</h1>
+<img src="budi.png" class="photo-main">
+<button class="btn" onclick="goToSection(3)">Selanjutnya 🎀</button>
+</section>
+
+<section id="sec3" class="hidden">
+<div class="big17">17</div>
+<div class="card-container" id="card">
+<div class="card-inner">
+<div class="card-front">
+<h2 style="font-family:'Pacifico',cursive;color:var(--pink-dark);">Untuk Kamu ❤️</h2>
+</div>
+<div class="card-back">
+<img src="udin.png" class="photo-card">
+<p>
+
+Semoga di usia yang baru ini kamu semakin bahagia, sehat selalu, dan semua impianmu tercapai. ✨
+
+Tetap jadi yang paling manis ya 💕
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+const audio=document.getElementById("bgMusic");
+
+document.addEventListener("click",function(){
+audio.play().catch(()=>{});
+},{once:true});
+
+function goToSection(n){
+audio.play().catch(()=>{});
+
+document.querySelectorAll("section").forEach(s=>{
+s.classList.remove("active");
+s.classList.add("hidden");
+});
+
+document.getElementById("sec"+n).classList.remove("hidden");
+document.getElementById("sec"+n).classList.add("active");
+
+if(n===3){
+setTimeout(()=>{
+document.getElementById("card").classList.add("open");
+startConfetti();
+},800);
+}
+}
+
+function startConfetti(){
+const colors=["#ffc0cb","#ffffff","#fdf6e3","#ffb6c1"];
+for(let i=0;i<40;i++){
+setTimeout(()=>{
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=Math.random()*100+"vw";
+c.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+c.style.animationDuration=(Math.random()*2+2)+"s";
+document.body.appendChild(c);
+},i*80);
+}
+}
+</script>
+
+</body>
+</html>
